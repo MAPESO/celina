@@ -17,6 +17,6 @@ Tené en cuenta que probablemente pueda estar en curso y la esté haciendo otra 
 
 
 Celina será siempre de código libre y abierto a que participe cualquier persona con ganas de ayudar y aprender.
-Es un proyecto creado por Boreal e impulsado desde GlobalShapersBA. 
+Es un proyecto creado por [Boreal](http://boreal.sh) e impulsado desde GlobalShapersBA. 
 
 Celina 2018
