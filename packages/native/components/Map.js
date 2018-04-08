@@ -4,13 +4,10 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import logo from './logo.png';
 
 export default class Map extends React.Component {
-  constructor(props) {
-    super(props);
+  ref = null;
+  handleRef = ref => (this.ref = ref);
 
-    this.handleMapReady = this.handleMapReady.bind(this);
-  }
-
-  handleMapReady() {
+  handleMapReady = () => {
     try {
       navigator.geolocation.getCurrentPosition(
         position => {
@@ -37,9 +34,7 @@ export default class Map extends React.Component {
         provider={PROVIDER_GOOGLE}
         showsMyLocationButton
         showsUserLocation
-        ref={map => {
-          this.map = map;
-        }}
+        ref={this.handleRef}
         onMapReady={this.handleMapReady}
         style={StyleSheet.absoluteFill}
       >
