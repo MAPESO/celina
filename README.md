@@ -16,4 +16,16 @@ Mandame un DM a @okbel con tu mail y te agrego al Slack - http://borealtalk.slac
 Celina será siempre de código libre y abierto a que participe cualquier persona con ganas de ayudar y aprender.
 Es un proyecto creado por Boreal e impulsado desde GlobalShapersBA. 
 
+
+## Development
+
+Este repo usa Lerna. Para instalar todas las dependencias luego de correr `yarn`, hay que correr: `lerna bootstrap`
+
+### Client
+`yarn watch:client`
+
+### Native
+`yarn watch:native`
+
+
 Celina 2018
