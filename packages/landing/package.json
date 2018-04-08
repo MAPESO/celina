@@ -1,0 +1,9 @@
+{
+  "name": "celina-landing",
+  "version": "0.0.1",
+  "description": "Celina's landing",
+  "main": "index.js",
+  "author": "Belén Curcio",
+  "license": "Apache 2.0",
+  "private": false
+}
