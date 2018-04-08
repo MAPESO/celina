@@ -1,29 +1,19 @@
 {
-  "name": "celina",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "jest-expo": "26.0.0",
-    "react-native-scripts": "1.13.1",
-    "react-test-renderer": "16.3.0-alpha.1",
-    "prettier": "^1.11.1"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest",
-    "prettier": "prettier --write '*.js'"
+    "changelog": "lerna-changelog",
+    "watch:client": "cd ./packages/client && yarn start",
+    "build:client": "cd ./packages/client && yarn build",
+    "watch:landing": "cd ./packages/landing && yarn start",
+    "build:landing": "cd ./packages/landing && yarn build",
+    "watch:native": "cd ./packages/native && yarn start"
   },
-  "jest": {
-    "preset": "jest-expo"
-  },
-  "dependencies": {
-    "expo": "^26.0.0",
-    "react": "16.3.0-alpha.1",
-    "react-native": "0.54.0",
-    "react-native-maps": "^0.20.1"
+  "devDependencies": {
+    "eslint": "4.15.0",
+    "husky": "^0.13.2",
+    "lerna": "^2.10.0",
+    "prettier": "1.6.1"
   }
 }

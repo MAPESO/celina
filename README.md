@@ -19,4 +19,16 @@ Tené en cuenta que probablemente pueda estar en curso y la esté haciendo otra 
 Celina será siempre de código libre y abierto a que participe cualquier persona con ganas de ayudar y aprender.
 Es un proyecto creado por [Boreal](http://boreal.sh) e impulsado desde GlobalShapersBA. 
 
+
+## Development
+
+Este repo usa Lerna. Para instalar todas las dependencias luego de correr `yarn`, hay que correr: `lerna bootstrap`
+
+### Client
+`yarn watch:client`
+
+### Native
+`yarn watch:native`
+
+
 Celina 2018
