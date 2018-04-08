@@ -12,6 +12,9 @@ El MVP consta de 4 vistas. Entre sus features hay: Geolocalizacion, un buscador 
 ## Cómo participar?
 Mandame un DM a @okbel con tu mail y te agrego al Slack - http://borealtalk.slack.com
 
+Podés elegir una tarea y submitear un Pull Request. Estas son las tareas https://github.com/globalshapersba/celina/projects/1
+Tené en cuenta que probablemente pueda estar en curso y la esté haciendo otra persona.
+
 
 Celina será siempre de código libre y abierto a que participe cualquier persona con ganas de ayudar y aprender.
 Es un proyecto creado por Boreal e impulsado desde GlobalShapersBA. 
