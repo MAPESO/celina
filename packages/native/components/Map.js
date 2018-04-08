@@ -17,7 +17,7 @@ export default class Map extends React.Component {
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           };
-          this.map.animateToRegion(region);
+          this.ref.animateToRegion(region);
         },
         error => {
           Alert.alert('', 'Error al detectar tu locación');
@@ -26,7 +26,7 @@ export default class Map extends React.Component {
     } catch (e) {
       alert(e.message || '');
     }
-  }
+  };
 
   render() {
     return (
