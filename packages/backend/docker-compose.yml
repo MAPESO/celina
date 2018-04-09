@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+    app:
+      image: lpalmes/celina-backend
+      restart: always
+      ports:
+          - "4001:4001"

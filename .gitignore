@@ -37,3 +37,6 @@ yarn-error.log*
 .idea/**/gradle.xml
 .idea/**/libraries
 º
+
+#Backend
+backend.exe

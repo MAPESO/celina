@@ -1,0 +1,25 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  vendors: [Vendor!]!
+}
+
+type Mutation {
+  createVendor(input: CreateVendorInput!): Vendor
+}
+
+
+type Vendor {
+  id: ID!
+  name: String!
+  address: String!
+}
+
+input CreateVendorInput {
+  name: String!
+  address: String!
+}
+
