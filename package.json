@@ -3,7 +3,14 @@
   "workspaces": [
     "packages/*"
   ],
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
+    "precommit": "lint-staged",
     "changelog": "lerna-changelog",
     "watch:client": "cd ./packages/client && yarn start",
     "build:client": "cd ./packages/client && yarn build",
@@ -13,8 +20,12 @@
   },
   "devDependencies": {
     "eslint": "4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
     "husky": "^0.13.2",
     "lerna": "^2.10.0",
+    "lint-staged": "^7.0.4",
     "prettier": "1.6.1"
   }
 }
