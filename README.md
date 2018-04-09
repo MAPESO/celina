@@ -20,8 +20,10 @@ Es un proyecto creado por [Boreal](http://boreal.sh) e impulsado desde GlobalSha
 
 ## Development
 
-Este repo usa [Lerna](https://lernajs.io/). Para instalar todas las dependencias luego de correr `yarn`, hay que correr: `lerna bootstrap`
+Este repo usa [Lerna](https://lernajs.io/). Para instalar todas las dependencias tiene que hacer lo siguiente:
 
+1. correr ``yarn`` en la raiz del proyecto (~/celina)
+2. correr el comando ``npx lerna bootstrap``
 ### Client
 `yarn watch:client`
 
