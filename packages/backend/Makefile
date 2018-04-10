@@ -1,5 +1,8 @@
 watch-build: 
-	watchman-make -p '*.go'  --run 'go build'
+	watchman-make -p '*.go'  -t build
+
+watch-run: 
+	watchman-make -p '*.go'  -t run
 
 build:
 	go build -o backend.exe

@@ -4,22 +4,39 @@ schema {
 }
 
 type Query {
-  vendors: [Vendor!]!
+  vendors(coordinates: CoordinatesInput!, radius: Float!): [Vendor!]!
 }
 
 type Mutation {
   createVendor(input: CreateVendorInput!): Vendor
 }
 
-
 type Vendor {
   id: ID!
   name: String!
   address: String!
+  category: String!
+  diet: [String!]!
+  coordinates: Coordinates!
+  distance: Float!
+}
+
+type Coordinates {
+  latitude: Float!
+  longitude: Float!
+}
+
+input CoordinatesInput {
+  latitude: Float!
+  longitude: Float!
 }
 
 input CreateVendorInput {
   name: String!
+  description: String!
   address: String!
+  category: String!
+  diet: [String!]!
+  coordinates: CoordinatesInput!
 }
 
