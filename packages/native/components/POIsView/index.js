@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { Alert, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import logo from './logo.png';
+import logo from '../../assets/images/logo.png';
 
-export default class Map extends React.Component {
+export default class POIsView extends React.Component {
   ref = null;
   handleRef = ref => (this.ref = ref);
 
