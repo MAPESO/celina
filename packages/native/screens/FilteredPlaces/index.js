@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, SafeAreaView, InteractionManager, View } from 'react-native';
 import POIsView from '../../components/POIsView';
 import markersService from '../../services/markers';
 import SegmentedControlTab from 'react-native-segmented-control-tab'
@@ -30,8 +30,17 @@ export default class FilteredPlacesScreen extends React.Component {
     this.onShowList = this.onShowList.bind(this);
 
     this.state = {
-      showMap: true
+      showMap: true,
+      didFinishedLoading: false
     };
+  }
+
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(() => {
+      this.setState({
+        didFinishedLoading: true,
+      });
+    });
   }
 
   onShowMap() {
@@ -51,7 +60,10 @@ export default class FilteredPlacesScreen extends React.Component {
 
     let child = null;
     if (this.state.showMap) {
-      child = <POIsView style={styles.mapView} markers={markersService.getMarkers}/>;
+      child = null;
+      if (this.state.didFinishedLoading) {
+        child = <POIsView style={styles.mapView} markers={markersService.getMarkers}/>
+      }
     } else {
       child = <View style={{flex: 1, backgroundColor: 'white'}}/>;
     }
@@ -89,9 +101,9 @@ const styles = StyleSheet.create({
   },
   filterList: {
     position: 'absolute',
-    bottom: (iPhoneXHelper.isIphoneX() ? 32 : 0),
-    left: 16,
-    right: 16,
+    bottom: (iPhoneXHelper.isIphoneX() ? 70 : 0),
+    left: (iPhoneXHelper.isIphoneX() ? 16 : 0),
+    right: (iPhoneXHelper.isIphoneX() ? 16 : 0),
     backgroundColor: '#6655A8',
     height: SHOW_LIST_HEIGHT,
     zIndex: 2

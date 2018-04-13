@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { StyleSheet, SafeAreaView, View, InteractionManager } from 'react-native';
 import POIsView from '../../components/POIsView';
 import HorizontalButtonsList from '../../components/HorizontalButtonsList';
 import markersService from '../../services/markers';
@@ -27,7 +27,17 @@ export default class SelectPlaceTypeScreen extends React.Component {
     super(props);
     this.onPlaceTypeSelected = this.onPlaceTypeSelected.bind(this);
 
-    console.log(this.props.navigation.state.params.title);
+    this.state = {
+      didFinishedLoading: false
+    };
+  }
+
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(() => {
+      this.setState({
+        didFinishedLoading: true,
+      });
+    });
   }
 
   onPlaceTypeSelected(placeType) {
@@ -42,7 +52,9 @@ export default class SelectPlaceTypeScreen extends React.Component {
     const { params } = this.props.navigation.state;
 
     return <SafeAreaView style={styles.container}>
-      <POIsView style={styles.mapView} markers={markersService.getMarkers}/>
+      { this.state.didFinishedLoading &&
+        <POIsView style={styles.mapView} markers={markersService.getMarkers}/>
+      }
       <View style={styles.filterList}>
         <HorizontalButtonsList items={[
           {
@@ -78,9 +90,9 @@ const styles = StyleSheet.create({
   },
   filterList: {
     position: 'absolute',
-    bottom: (iPhoneXHelper.isIphoneX() ? 32 : 0),
-    left: 16,
-    right: 16,
+    bottom: (iPhoneXHelper.isIphoneX() ? 70 : 0),
+    left: (iPhoneXHelper.isIphoneX() ? 16 : 0),
+    right: (iPhoneXHelper.isIphoneX() ? 16 : 0),
     backgroundColor: '#6655A8',
     height: FILTER_LIST_HEIGHT,
     zIndex: 2
