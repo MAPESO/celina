@@ -4,11 +4,20 @@ schema {
 }
 
 type Query {
-  vendors(coordinates: CoordinatesInput!, radius: Float!): [Vendor!]!
+  viewer(geolocation: GeolocationInput): Viewer
 }
 
 type Mutation {
   createVendor(input: CreateVendorInput!): Vendor
+}
+
+type Viewer {
+  vendors: [Vendor!]!
+}
+
+input GeolocationInput {
+  coordinates: CoordinatesInput!
+  radius: Float!
 }
 
 type Vendor {
@@ -39,4 +48,3 @@ input CreateVendorInput {
   diet: [String!]!
   coordinates: CoordinatesInput!
 }
-

@@ -1,0 +1,45 @@
+type Coordinates {
+  latitude: Float!
+  longitude: Float!
+}
+
+input CoordinatesInput {
+  latitude: Float!
+  longitude: Float!
+}
+
+input CreateVendorInput {
+  name: String!
+  description: String!
+  address: String!
+  category: String!
+  diet: [String!]!
+  coordinates: CoordinatesInput!
+}
+
+input GeolocationInput {
+  coordinates: CoordinatesInput!
+  radius: Float!
+}
+
+type Mutation {
+  createVendor(input: CreateVendorInput!): Vendor
+}
+
+type Query {
+  viewer(geolocation: GeolocationInput): Viewer
+}
+
+type Vendor {
+  id: ID!
+  name: String!
+  address: String!
+  category: String!
+  diet: [String!]!
+  coordinates: Coordinates!
+  distance: Float!
+}
+
+type Viewer {
+  vendors: [Vendor!]!
+}

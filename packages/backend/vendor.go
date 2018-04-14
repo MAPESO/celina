@@ -2,7 +2,6 @@ package main
 
 import (
 	graphql "github.com/graph-gophers/graphql-go"
-	"github.com/kellydunn/golang-geo"
 	uuid "github.com/satori/go.uuid"
 )
 
@@ -16,37 +15,7 @@ type Vendor struct {
 	Coordinates Coordinates
 }
 
-type Coordinates struct {
-	Latitude  float64
-	Longitude float64
-}
-
-func (c *Coordinates) Point() *geo.Point {
-	return geo.NewPoint(c.Latitude, c.Longitude)
-}
-
 var vendors = []Vendor{}
-
-func (r *Resolver) Vendors(args *struct {
-	Coordinates CoordinatesInput
-	Radius      float64
-}) []*vendorResolver {
-	l := []*vendorResolver{}
-
-	// We get the user coordinates from the server and converted to a geo.Point
-	// So we can then compare with each vendor coordinate and see if the distance is
-	// smaller than the set radius
-	userPoint := geo.NewPoint(args.Coordinates.Latitude, args.Coordinates.Longitude)
-
-	for _, vendor := range vendors {
-		distance := userPoint.GreatCircleDistance(vendor.Coordinates.Point())
-		if distance <= args.Radius {
-			l = append(l, &vendorResolver{Vendor: vendor, distance: distance})
-		}
-	}
-
-	return l
-}
 
 type vendorResolver struct {
 	Vendor   Vendor
