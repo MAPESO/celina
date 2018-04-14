@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash bcbe367d3954110e5519b363d7750a4b
+ * @relayHash c402da7a892b6740423261fdc4f2b2c6
  */
 
 /* eslint-disable */
@@ -15,6 +15,14 @@ export type AppQueryResponse = {|
     +vendors: $ReadOnlyArray<{|
       +id: string,
       +name: string,
+      +address: string,
+      +category: string,
+      +diet: $ReadOnlyArray<string>,
+      +distance: number,
+      +coordinates: {|
+        +latitude: number,
+        +longitude: number,
+      |},
     |}>,
   |},
 |};
@@ -27,6 +35,14 @@ query AppQuery {
     vendors {
       id
       name
+      address
+      category
+      diet
+      distance
+      coordinates {
+        latitude
+        longitude
+      }
     }
   }
 }
@@ -56,6 +72,59 @@ var v0 = [
         "name": "name",
         "args": null,
         "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "address",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "category",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "diet",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "ScalarField",
+        "alias": null,
+        "name": "distance",
+        "args": null,
+        "storageKey": null
+      },
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "coordinates",
+        "storageKey": null,
+        "args": null,
+        "concreteType": "Coordinates",
+        "plural": false,
+        "selections": [
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "latitude",
+            "args": null,
+            "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": null,
+            "name": "longitude",
+            "args": null,
+            "storageKey": null
+          }
+        ]
       }
     ]
   }
@@ -65,7 +134,7 @@ return {
   "operationKind": "query",
   "name": "AppQuery",
   "id": null,
-  "text": "query AppQuery {\n  viewer {\n    vendors {\n      id\n      name\n    }\n  }\n}\n",
+  "text": "query AppQuery {\n  viewer {\n    vendors {\n      id\n      name\n      address\n      category\n      diet\n      distance\n      coordinates {\n        latitude\n        longitude\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -114,5 +183,5 @@ return {
   }
 };
 })();
-(node/*: any*/).hash = '7d5eb5ce4fa80910f323231092aa9901';
+(node/*: any*/).hash = '76b75dfb87a26eb5b894120760117d5a';
 module.exports = node;
