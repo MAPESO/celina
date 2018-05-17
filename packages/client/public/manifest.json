@@ -7,7 +7,7 @@
   "scope": "./index.html",
   "orientation": "portrait",
   "theme_color": "#000",
-  "background_color": "#ffffff",
+  "background_color": "#fff",
   "icons": [
     {
       "src": "favicon.ico",
