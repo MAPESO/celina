@@ -1,3 +1,6 @@
+/*eslint-disable*/
+// use the "it" function is fine, 
+// even though it is not defended in the file :)
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
